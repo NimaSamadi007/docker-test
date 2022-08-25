@@ -17,7 +17,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --tag samadinima/gotest:latest
     - name: Login to Dockerhub
-      run: docker login ${{secrets.DOCKERHUB_USER}} -p ${{secrets.DOCKERHUB_PASSWORD}}
+      run: docker login -u ${{secrets.DOCKERHUB_USER}} -p ${{secrets.DOCKERHUB_PASSWORD}}
     - name: Push to Docker hub
       run: docker push samadinima/gotest:latest
-      
