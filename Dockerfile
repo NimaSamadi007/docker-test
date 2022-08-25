@@ -1,4 +1,4 @@
-FROM golang:1.18
+FROM golang:1.18 AS build
 
 WORKDIR /src
 
@@ -9,5 +9,11 @@ RUN go mod download
 COPY main.go . 
 
 RUN go build .
+
+FROM ubuntu:20.04
+
+WORKDIR /app
+
+COPY --from=build /src/docker-test .
 
 CMD ["./docker-test"]
