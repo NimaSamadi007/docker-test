@@ -8,6 +8,6 @@ RUN go mod download
 
 COPY main.go . 
 
-RUN go build . -o app
+RUN go build .
 
-CMD ["./app"]
+CMD ["./docker-test"]
